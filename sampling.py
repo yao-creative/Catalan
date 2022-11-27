@@ -90,13 +90,13 @@ if __name__ == "__main__":
     ax1.set_title(f"Distribution of Dyck paths for N={N} and M={M}")
     ax1.set_ylim(0,max(distribution.values())+ M/(2*(len(distribution))))
     ax1.plot(list(distribution.values()))
-    ax2.set_title(f"Dyck paths for N={N} and M={M}")
+    ax2.set_title(f"Dyck paths for N={N} and M={M} Method{method}")
     c = 4*np.log(M)**2
     
     for path in dyck_path_objs:
         ax2.plot(path.ys, color = "green", alpha = 1/c)
     
-    fig.savefig(f"distribution_and_dyck_paths_N{N}_M{M}.png")
+    fig.savefig(f"distribution_and_dyck_paths_N{N}_M{M}_Method{method}.png")
     
     fig2 = plt.figure(figsize=(20,20))
     ys = np.linspace(0,N+1,N+1)
@@ -112,10 +112,8 @@ if __name__ == "__main__":
 
     contour = plt.contourf(xs,ys, zs,extend="max")
     plt.colorbar(contour)
-    fig2.savefig(f"contour_N{N}_M{M}.png")
+    fig2.savefig(f"contour_N{N}_M{M}_Method{method}.png")
 
-    np.save(f"point_distribution_N{N}_M{M}",zs)
-    
-    
+    np.save(f"point_distribution_N{N}_M{M}_Method{method}",zs)
     
     
